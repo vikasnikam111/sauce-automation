@@ -1,4 +1,5 @@
 def test_site_opens(page):
-    page.goto("https://www.saucedemo.com/")
+    page.goto("/")
     assert page.title() == "Swag Labs"
-    
+
+
