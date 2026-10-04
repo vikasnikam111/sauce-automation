@@ -10,3 +10,5 @@ class CartPage(BasePage):
         return self.cart_items.count()  
     def proceed_to_checkout(self):
         self.check_out_button.click()
+    def get_cart_items(self):
+        return self.cart_items

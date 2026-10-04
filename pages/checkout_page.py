@@ -22,3 +22,6 @@ class CheckoutPage(BasePage):
 
     def get_confirmation_text(self):
         return self.confirmation_header.text_content()
+
+    def get_confirmation_header(self):
+        return self.confirmation_header
