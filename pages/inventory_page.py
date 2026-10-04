@@ -10,4 +10,6 @@ class InventoryPage(BasePage):
         self.page.locator(f"[data-test='add-to-cart-{data_test_suffix}']").click()
     def get_cart_count(self):
         return self.cart_badge.text_content()
+    def open_cart(self):
+        self.cart_badge.click()
         
