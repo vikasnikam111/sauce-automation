@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch:
 
 jobs:
   test:
@@ -22,7 +25,14 @@ jobs:
         run: playwright install --with-deps chromium
 
       - name: Run tests
-        run: pytest
+        run: pytest --html=reports/report.html --self-contained-html
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-report
+          path: reports/report.html
 
       - name: Save screenshots if tests fail
         if: failure()
