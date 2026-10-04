@@ -4,7 +4,7 @@ class CartPage(BasePage):
     def __init__(self,page):
         super().__init__(page)
         self.check_out_button = page.locator("[data-test='checkout']")
-        self.cart_items = page.locator("[data-test='cart-item']")
+        self.cart_items = page.locator("[data-test='inventory-item']")
 
     def get_item_count(self):
         return self.cart_items.count()  
